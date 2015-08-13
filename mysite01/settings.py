@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'calcmd5_app',
     'Calcmd5App',
     'booksapp',
+    'FileTransfer',
 )
 
 MIDDLEWARE_CLASSES = (

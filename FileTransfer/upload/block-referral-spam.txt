@@ -1,0 +1,54 @@
+1. 创建directory
+
+sudo mkdir /etc/nginx/global
+
+sudo nano /etc/nginx/global/referer-spam.conf
+
+2.在编辑器中写下如下代码，保存并退出。
+
+##
+
+# Referrer exclusions
+
+##
+
+if ($http_referer ~ "(semalt\.com|buttons-for-website\.com|4webmasters\.org|7makemoneyonline\.com|acads\.net|adcash\.com|addons.mozilla\.org/en-US/firefox/addon/ilovevitaly/|
+aliexpress\.com|anal-acrobats\.hol.es|anticrawler\.org|best-seo-offer\.com|best-seo-solution\.com|bestwebsitesawards\.com|blackhatworth\.com|brakehawk\.com|buttons-for-website\.com|
+buy-cheap-online\.info|cenokos\.ru|cenoval\.ru|cityadspix\.com|darodar\.com|domination\.ml|econom\.co|edakgfvwql\.ru|event-tracking\.com|forum69\.info|free-share-buttons\.com|
+free-social-buttons\.com|Get-Free-Traffic-Now\.com|gobongo\.info|googlsucks\.com|guardlink\.org|hulfingtonpost\.com|humanorightswatch\.org|ilovevitaly\.co|ilovevitaly\.com|
+ilovevitaly\.ru|iminent\.com|iskalko\.ru|kabbalah-red-bracelets\.com|kambasoft\.com|luxup\.ru|makemoneyonline\.com|masterseek\.com| myftpupload\.com|o-o-6-o-o\.com|o-o-6-o-o\.ru|
+o-o-8-o-o\.ru|pornhub-forum\.ga|pornhub-forum\.uni.me|priceg\.com|prlog\.ru|ranksonic\.info|ranksonic\.org|rapidgator-porn\.ga|sanjosestartups\.com|savetubevideo\.com|
+screentoolkit\.com|semalt\.com|seoexperimenty\.ru|sexyteens\.hol.es|simple-share-buttons\.com|slftsdybbg\.ru|smailik\.org|social-buttons\.com|socialseet\.ru|superiends\.org|
+theguardlan\.com|vodkoved\.ru|webmaster-traffic\.com|websocial\.me|ykecwqlixx\.ru|youporn-forum\.ga|youporn-forum\.uni.me|site10.simple-share-buttons\.com|sur\.ly|fptshop\.com.vn|
+webatm.alibaba\.com|torture\.ml|bbs-mychat\.com|sanjosestartups\.com|moneymaker.cybertranslator\.idv.tw|trafficmonetize\.org|webmonetizer\.net|site1.floating-share-buttons\.com
+|site4.floating-share-buttons\.com|howtostopreferralspam\.eu|site2.floating-share-buttons\.com|100dollars-seo\.com|success-seo\.com)") 
+{
+  set $prohibited "1";
+}
+
+if ($prohibited) {   return 403; }
+
+
+
+3. 在配置文件中，添加以下代码：
+
+server {
+  … all the stuff that's there already …
+
+  include /etc/nginx/global/*;
+}
+
+
+4. 重启Nginx
+
+sudo service nginx restart 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	
+	 

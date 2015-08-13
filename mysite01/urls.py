@@ -18,4 +18,5 @@ urlpatterns = patterns('',
 )
 urlpatterns += patterns('',
     url(r'^search/$', 'booksapp.views.search'),
+    url(r'^upload/$', 'FileTransfer.views.get_name'),
 )
