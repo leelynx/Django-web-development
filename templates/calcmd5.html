@@ -1,0 +1,18 @@
+﻿<html>
+<head><title>Calc Md5</title></head>
+<body>
+<p style="color: red"; align="left"><font size="5">比对文件md5值：</font><p>
+    <ol>
+        {% for md5message in md5change %}
+        <li style="color: red"><strong>{{ md5message }}</strong></li>
+        {% endfor %}
+    </ol>
+    
+    <ol>
+            {% for md5mess in md5check %}
+        <li style="color: green">{{ md5mess }}</li>
+            {% endfor %}
+
+    <ol/>
+</body>
+</html>

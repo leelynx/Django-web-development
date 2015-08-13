@@ -1,0 +1,23 @@
+﻿<html>
+<head><title>Calc File Md5</title>
+<body>
+{% if errors %}
+   <ul style="color: red";>
+       {% for error in errors %}
+       <li>{{ error }}</li>
+       {% endfor %}
+    </ul>
+ {% endif %}
+<form action="/getmd5/" method="POST">
+ <fieldset> 
+   <legend>计算MD5</legend>
+    <p><strong>Host: <input type="text" name="hostname" maxlength='15' value="{{ hostname }}"></strong></p>
+     <p><strong>User: <input type="text" name="username" value="root"></strong></p>
+     <p><strong>Pass: <input type="password" name="passwd" value="{{ passwd }}"></strong></p>
+     <p><strong>Gdir: <input type="text" name="dirpath" value="{{ dirname }}"></strong></p>
+    <input type="submit" name="Submit">
+    {% csrf_token %}
+  </fieldset>
+</form>
+</body>
+<html>
