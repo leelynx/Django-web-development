@@ -16,3 +16,6 @@ urlpatterns = patterns('',
     url(r'calcmd5/$', 'calcmd5_app.views.CalcMd5', name='CalcMd5'),
     url(r'getmd5/$', 'Calcmd5App.views.GetMd5', name='GetMd5'),
 )
+urlpatterns += patterns('',
+    url(r'^search/$', 'booksapp.views.search'),
+)
